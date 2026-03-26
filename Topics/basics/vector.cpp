@@ -43,5 +43,15 @@ int main()
             cout << value << " (type: " << typeid(value).name() << ")" << endl;
         }, data);
     }
+    
+    // just loop over variant and print the values ():
+    for (const auto& d:variant_data)
+    {
+        visit ([] (const auto& value)
+        {
+            cout << value << ", ";
+        }, d);
+        
+    }
     return 0;
 }
